@@ -5,6 +5,7 @@ import { Dashboard } from './pages/Dashboard';
 import { TicketList } from './pages/TicketList';
 import { TicketForm } from './pages/TicketForm';
 import { CompanyList } from './pages/CompanyList';
+import { CompanyForm } from './pages/CompanyForm';
 import { UserList } from './pages/UserList';
 import { Settings } from './pages/Settings';
 
@@ -17,6 +18,7 @@ export default function App() {
           <Route path="tickets" element={<TicketList />} />
           <Route path="tickets/new" element={<TicketForm />} />
           <Route path="companies" element={<CompanyList />} />
+          <Route path="companies/new" element={<CompanyForm />} />
           <Route path="users" element={<UserList />} />
           <Route path="settings" element={<Settings />} />
           

@@ -12,6 +12,7 @@ import {
   PlusCircle
 } from 'lucide-react';
 import { motion } from 'motion/react';
+import { useNavigate } from 'react-router-dom';
 
 const stats = [
   { 
@@ -53,6 +54,8 @@ const stats = [
 ];
 
 export function Dashboard() {
+  const navigate = useNavigate();
+
   return (
     <div className="space-y-8">
       <div>
@@ -124,7 +127,10 @@ export function Dashboard() {
           <div className="bg-brand-600 rounded-2xl p-6 text-white shadow-lg shadow-brand-200">
             <h3 className="font-semibold mb-2">Novo Ticket</h3>
             <p className="text-brand-100 text-sm mb-4">Precisa registrar um novo atendimento rapidamente?</p>
-            <button className="w-full bg-white text-brand-600 py-2.5 rounded-xl font-semibold text-sm hover:bg-brand-50 transition-colors flex items-center justify-center gap-2">
+            <button 
+              onClick={() => navigate('/tickets/new')}
+              className="w-full bg-white text-brand-600 py-2.5 rounded-xl font-semibold text-sm hover:bg-brand-50 transition-colors flex items-center justify-center gap-2"
+            >
               <PlusCircle size={18} />
               Criar Agora
             </button>

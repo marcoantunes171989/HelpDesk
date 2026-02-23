@@ -8,6 +8,7 @@ import {
   CheckCircle2,
   XCircle
 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const companies = [
   { id: 1, name: 'Tech Solutions', industry: 'Tecnologia', tickets: 12, active: true, contact: 'contato@techsolutions.com' },
@@ -18,6 +19,8 @@ const companies = [
 ];
 
 export function CompanyList() {
+  const navigate = useNavigate();
+
   return (
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
@@ -25,7 +28,10 @@ export function CompanyList() {
           <h1 className="text-2xl font-bold text-slate-900">Empresas</h1>
           <p className="text-slate-500">Gerencie as empresas clientes da plataforma.</p>
         </div>
-        <button className="bg-brand-600 text-white px-4 py-2.5 rounded-xl font-semibold text-sm hover:bg-brand-700 transition-colors flex items-center justify-center gap-2">
+        <button 
+          onClick={() => navigate('/companies/new')}
+          className="bg-brand-600 text-white px-4 py-2.5 rounded-xl font-semibold text-sm hover:bg-brand-700 transition-colors flex items-center justify-center gap-2"
+        >
           <Plus size={18} />
           Nova Empresa
         </button>

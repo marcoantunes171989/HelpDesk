@@ -12,6 +12,7 @@ import {
   AlertCircle
 } from 'lucide-react';
 import { cn } from '../lib/utils';
+import { useNavigate } from 'react-router-dom';
 
 const tickets = [
   { id: 'TK-1025', title: 'Problema com login no portal', company: 'Tech Solutions', requester: 'João Silva', status: 'open', priority: 'high', date: '23/02/2026' },
@@ -36,6 +37,8 @@ const priorityMap = {
 };
 
 export function TicketList() {
+  const navigate = useNavigate();
+
   return (
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
@@ -43,7 +46,10 @@ export function TicketList() {
           <h1 className="text-2xl font-bold text-slate-900">Tickets</h1>
           <p className="text-slate-500">Gerencie todos os atendimentos da plataforma.</p>
         </div>
-        <button className="bg-brand-600 text-white px-4 py-2.5 rounded-xl font-semibold text-sm hover:bg-brand-700 transition-colors flex items-center justify-center gap-2">
+        <button 
+          onClick={() => navigate('/tickets/new')}
+          className="bg-brand-600 text-white px-4 py-2.5 rounded-xl font-semibold text-sm hover:bg-brand-700 transition-colors flex items-center justify-center gap-2"
+        >
           <Plus size={18} />
           Novo Ticket
         </button>
