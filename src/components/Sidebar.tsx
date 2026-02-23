@@ -20,6 +20,8 @@ import { cn } from '../lib/utils';
 interface SidebarProps {
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
+  isCollapsed: boolean;
+  setIsCollapsed: (isCollapsed: boolean) => void;
 }
 
 const menuGroups = [
@@ -49,9 +51,8 @@ const menuGroups = [
   }
 ];
 
-export function Sidebar({ isOpen, setIsOpen }: SidebarProps) {
+export function Sidebar({ isOpen, setIsOpen, isCollapsed, setIsCollapsed }: SidebarProps) {
   const location = useLocation();
-  const [isCollapsed, setIsCollapsed] = useState(false);
 
   // Close sidebar on mobile when route changes
   useEffect(() => {
@@ -79,24 +80,24 @@ export function Sidebar({ isOpen, setIsOpen }: SidebarProps) {
         )}
       >
         {/* Header */}
-        <div className="h-16 flex items-center justify-between px-6 border-bottom border-slate-100">
-          <div className={cn("flex items-center gap-3 transition-opacity duration-300", isCollapsed ? "opacity-0 invisible w-0" : "opacity-100 visible")}>
-            <div className="w-8 h-8 bg-brand-600 rounded-lg flex items-center justify-center">
+        <div className="h-16 flex items-center justify-between px-6 border-b border-slate-100 shrink-0">
+          <div className={cn("flex items-center gap-3 transition-all duration-300 overflow-hidden", isCollapsed ? "w-0 opacity-0" : "w-auto opacity-100")}>
+            <div className="w-8 h-8 bg-brand-600 rounded-lg flex items-center justify-center shrink-0">
               <Ticket className="text-white w-5 h-5" />
             </div>
-            <span className="font-bold text-xl tracking-tight text-slate-900">ATENDIFY</span>
+            <span className="font-bold text-xl tracking-tight text-slate-900 whitespace-nowrap">ATENDIFY</span>
           </div>
           
           <button 
             onClick={() => setIsCollapsed(!isCollapsed)}
-            className="hidden lg:flex p-1.5 rounded-lg hover:bg-slate-100 text-slate-500 transition-colors"
+            className="hidden lg:flex p-1.5 rounded-lg hover:bg-slate-100 text-slate-500 transition-colors shrink-0"
           >
             {isCollapsed ? <ChevronRight size={20} /> : <ChevronLeft size={20} />}
           </button>
 
           <button 
             onClick={() => setIsOpen(false)}
-            className="lg:hidden p-1.5 rounded-lg hover:bg-slate-100 text-slate-500"
+            className="lg:hidden p-1.5 rounded-lg hover:bg-slate-100 text-slate-500 shrink-0"
           >
             <X size={20} />
           </button>
@@ -120,7 +121,8 @@ export function Sidebar({ isOpen, setIsOpen }: SidebarProps) {
                       "flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-200 group",
                       isActive 
                         ? "bg-brand-50 text-brand-700 font-medium" 
-                        : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
+                        : "text-slate-600 hover:bg-slate-50 hover:text-slate-900",
+                      isCollapsed ? "justify-center px-0" : ""
                     )}
                     title={isCollapsed ? item.name : ""}
                   >
@@ -137,7 +139,7 @@ export function Sidebar({ isOpen, setIsOpen }: SidebarProps) {
         </nav>
 
         {/* Footer */}
-        <div className="p-4 border-t border-slate-100">
+        <div className="p-4 border-t border-slate-100 shrink-0">
           <div className={cn(
             "flex items-center gap-3 p-2 rounded-xl transition-all",
             isCollapsed ? "justify-center" : ""
