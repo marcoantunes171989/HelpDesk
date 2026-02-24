@@ -61,10 +61,10 @@ export function Settings() {
               key={item.id}
               onClick={() => setActiveSection(item.id as SettingsSection)}
               className={cn(
-                "w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium transition-all",
+                "w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium transition-all border",
                 activeSection === item.id 
-                  ? 'bg-brand-50 dark:bg-brand-900/20 text-brand-700 dark:text-brand-400' 
-                  : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-slate-200'
+                  ? 'bg-white dark:bg-brand-900/20 text-brand-700 dark:text-brand-400 border-brand-200 dark:border-brand-500/30 shadow-sm' 
+                  : 'text-slate-600 dark:text-slate-400 hover:bg-white dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-slate-200 border-transparent'
               )}
             >
               <item.icon size={18} />
@@ -76,10 +76,10 @@ export function Settings() {
         {/* Content */}
         <div className="lg:col-span-3 space-y-6">
           {activeSection === 'perfil' && (
-            <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden transition-colors">
-              <div className="p-6 border-b border-slate-100 dark:border-slate-800">
-                <h2 className="font-semibold text-slate-900 dark:text-white">Informações do Perfil</h2>
-                <p className="text-sm text-slate-500 dark:text-slate-400">Atualize sua foto e detalhes pessoais.</p>
+            <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden transition-colors">
+              <div className="p-6 border-b border-slate-100">
+                <h2 className="font-semibold text-slate-900">Informações do Perfil</h2>
+                <p className="text-sm text-slate-500">Atualize sua foto e detalhes pessoais.</p>
               </div>
               <div className="p-6 space-y-6">
                 <div className="flex items-center gap-6">
@@ -143,10 +143,10 @@ export function Settings() {
           )}
 
           {activeSection === 'tema' && (
-            <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden transition-colors">
-              <div className="p-6 border-b border-slate-100 dark:border-slate-800">
-                <h2 className="font-semibold text-slate-900 dark:text-white">{t('theme')}</h2>
-                <p className="text-sm text-slate-500 dark:text-slate-400">Escolha como o Atendify deve aparecer para você.</p>
+            <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden transition-colors">
+              <div className="p-6 border-b border-slate-100">
+                <h2 className="font-semibold text-slate-900">{t('theme')}</h2>
+                <p className="text-sm text-slate-500">Escolha como o Atendify deve aparecer para você.</p>
               </div>
               <div className="p-6 grid grid-cols-1 md:grid-cols-3 gap-4">
                 {[
@@ -159,9 +159,9 @@ export function Settings() {
                     onClick={() => handleThemeChange(theme.id as Theme)}
                     className={cn(
                       "flex flex-col items-start p-4 rounded-2xl border-2 transition-all text-left group",
-                      "hover:border-brand-200 dark:hover:border-brand-500/50 hover:bg-brand-50/50 dark:hover:bg-brand-900/20",
+                      "hover:border-brand-200 dark:hover:border-brand-500/50 hover:bg-white dark:hover:bg-brand-900/20",
                       currentTheme === theme.id 
-                        ? "border-brand-600 dark:border-brand-500 bg-brand-50/50 dark:bg-brand-900/20" 
+                        ? "border-brand-600 dark:border-brand-500 bg-white dark:bg-brand-900/20 shadow-sm" 
                         : "border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900"
                     )}
                   >
@@ -185,10 +185,10 @@ export function Settings() {
           )}
 
           {activeSection === 'idioma' && (
-            <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden transition-colors">
-              <div className="p-6 border-b border-slate-100 dark:border-slate-800">
-                <h2 className="font-semibold text-slate-900 dark:text-white">{t('language')}</h2>
-                <p className="text-sm text-slate-500 dark:text-slate-400">Selecione o idioma da interface e formato de data.</p>
+            <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden transition-colors">
+              <div className="p-6 border-b border-slate-100">
+                <h2 className="font-semibold text-slate-900">{t('language')}</h2>
+                <p className="text-sm text-slate-500">Selecione o idioma da interface e formato de data.</p>
               </div>
               <div className="p-6 space-y-4">
                 {[
@@ -201,9 +201,9 @@ export function Settings() {
                     onClick={() => handleLanguageChange(lang.id as Language)}
                     className={cn(
                       "w-full flex items-center justify-between p-4 rounded-2xl border-2 transition-all text-left",
-                      "hover:border-brand-200 dark:hover:border-brand-500/50 hover:bg-brand-50/50 dark:hover:bg-brand-900/20",
+                      "hover:border-brand-200 dark:hover:border-brand-500/50 hover:bg-white dark:hover:bg-brand-900/20",
                       currentLang === lang.id 
-                        ? "border-brand-600 dark:border-brand-500 bg-brand-50/50 dark:bg-brand-900/20" 
+                        ? "border-brand-600 dark:border-brand-500 bg-white dark:bg-brand-900/20 shadow-sm" 
                         : "border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900"
                     )}
                   >

@@ -61,10 +61,10 @@ const priorityData = [
 const periodData = {
   hoje: {
     stats: [
-      { label: t('totalTickets'), value: '12', change: '+5%', trend: 'up', icon: Ticket, color: 'text-blue-600', bg: 'bg-blue-50' },
-      { label: t('avgResponse'), value: '45m', change: '-10%', trend: 'up', icon: Clock, color: 'text-amber-600', bg: 'bg-amber-50' },
-      { label: t('resolutionRate'), value: '98%', change: '+1.2%', trend: 'up', icon: CheckCircle2, color: 'text-emerald-600', bg: 'bg-emerald-50' },
-      { label: t('slaCompliance'), value: '100%', change: '0%', trend: 'up', icon: Zap, color: 'text-indigo-600', bg: 'bg-indigo-50' },
+      { label: t('totalTickets'), value: '12', change: '+5%', trend: 'up', icon: Ticket, color: 'text-blue-600', bg: 'bg-white border border-blue-100' },
+      { label: t('avgResponse'), value: '45m', change: '-10%', trend: 'up', icon: Clock, color: 'text-amber-600', bg: 'bg-white border border-amber-100' },
+      { label: t('resolutionRate'), value: '98%', change: '+1.2%', trend: 'up', icon: CheckCircle2, color: 'text-emerald-600', bg: 'bg-white border border-emerald-100' },
+      { label: t('slaCompliance'), value: '100%', change: '0%', trend: 'up', icon: Zap, color: 'text-indigo-600', bg: 'bg-white border border-indigo-100' },
     ],
     volume: [
       { name: '08:00', tickets: 2, resolved: 1 },
@@ -89,10 +89,10 @@ const periodData = {
   },
   semana: {
     stats: [
-      { label: t('totalTickets'), value: '87', change: '+12%', trend: 'up', icon: Ticket, color: 'text-blue-600', bg: 'bg-blue-50' },
-      { label: t('avgResponse'), value: '1h 24m', change: '-15%', trend: 'up', icon: Clock, color: 'text-amber-600', bg: 'bg-amber-50' },
-      { label: t('resolutionRate'), value: '94.2%', change: '+2.4%', trend: 'up', icon: CheckCircle2, color: 'text-emerald-600', bg: 'bg-emerald-50' },
-      { label: t('slaCompliance'), value: '98.5%', change: '+0.5%', trend: 'up', icon: Zap, color: 'text-indigo-600', bg: 'bg-indigo-50' },
+      { label: t('totalTickets'), value: '87', change: '+12%', trend: 'up', icon: Ticket, color: 'text-blue-600', bg: 'bg-white border border-blue-100' },
+      { label: t('avgResponse'), value: '1h 24m', change: '-15%', trend: 'up', icon: Clock, color: 'text-amber-600', bg: 'bg-white border border-amber-100' },
+      { label: t('resolutionRate'), value: '94.2%', change: '+2.4%', trend: 'up', icon: CheckCircle2, color: 'text-emerald-600', bg: 'bg-white border border-emerald-100' },
+      { label: t('slaCompliance'), value: '98.5%', change: '+0.5%', trend: 'up', icon: Zap, color: 'text-indigo-600', bg: 'bg-white border border-indigo-100' },
     ],
     volume: [
       { name: 'Seg', tickets: 12, resolved: 10 },
@@ -108,10 +108,10 @@ const periodData = {
   },
   mes: {
     stats: [
-      { label: t('totalTickets'), value: '342', change: '+8%', trend: 'up', icon: Ticket, color: 'text-blue-600', bg: 'bg-blue-50' },
-      { label: t('avgResponse'), value: '1h 10m', change: '-5%', trend: 'up', icon: Clock, color: 'text-amber-600', bg: 'bg-amber-50' },
-      { label: t('resolutionRate'), value: '92.5%', change: '+1.8%', trend: 'up', icon: CheckCircle2, color: 'text-emerald-600', bg: 'bg-emerald-50' },
-      { label: t('slaCompliance'), value: '97.2%', change: '+0.2%', trend: 'up', icon: Zap, color: 'text-indigo-600', bg: 'bg-indigo-50' },
+      { label: t('totalTickets'), value: '342', change: '+8%', trend: 'up', icon: Ticket, color: 'text-blue-600', bg: 'bg-white border border-blue-100' },
+      { label: t('avgResponse'), value: '1h 10m', change: '-5%', trend: 'up', icon: Clock, color: 'text-amber-600', bg: 'bg-white border border-amber-100' },
+      { label: t('resolutionRate'), value: '92.5%', change: '+1.8%', trend: 'up', icon: CheckCircle2, color: 'text-emerald-600', bg: 'bg-white border border-emerald-100' },
+      { label: t('slaCompliance'), value: '97.2%', change: '+0.2%', trend: 'up', icon: Zap, color: 'text-indigo-600', bg: 'bg-white border border-indigo-100' },
     ],
     volume: [
       { name: 'Sem 1', tickets: 80, resolved: 75 },
@@ -205,8 +205,8 @@ export function Dashboard() {
                 key={p}
                 onClick={() => setPeriod(p)}
                 className={cn(
-                  "px-3 py-1.5 text-xs font-bold rounded-lg transition-all capitalize",
-                  period === p ? "bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white" : "text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
+                  "px-3 py-1.5 text-xs font-bold rounded-lg transition-all capitalize border",
+                  period === p ? "bg-white dark:bg-slate-800 text-slate-900 dark:text-white border-slate-200 dark:border-slate-700 shadow-sm" : "text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 border-transparent"
                 )}
               >
                 {p === 'mes' ? 'Mês' : p}
@@ -270,23 +270,23 @@ export function Dashboard() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.05 }}
-            className="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-slate-300 dark:hover:border-slate-700 transition-all group"
+            className="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-slate-300 transition-all group"
           >
             <div className="flex items-center justify-between mb-2">
-              <div className={cn("p-2 rounded-xl transition-colors", stat.bg, "dark:bg-slate-800")}>
+              <div className={cn("p-2 rounded-xl transition-colors", stat.bg)}>
                 <stat.icon className={cn("w-4 h-4", stat.color)} />
               </div>
               <div className={cn(
                 "flex items-center gap-1 px-2 py-0.5 rounded-lg text-[10px] font-bold",
-                stat.trend === 'up' ? "bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400" : "bg-rose-50 dark:bg-rose-900/20 text-rose-700 dark:text-rose-400"
+                stat.trend === 'up' ? "bg-emerald-50 text-emerald-700" : "bg-rose-50 text-rose-700"
               )}>
                 {stat.change}
                 {stat.trend === 'up' ? <ArrowUpRight size={10} /> : <ArrowDownRight size={10} />}
               </div>
             </div>
             <div>
-              <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">{stat.label}</p>
-              <h3 className="text-xl font-bold text-slate-900 dark:text-white mt-0.5">{stat.value}</h3>
+              <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">{stat.label}</p>
+              <h3 className="text-xl font-bold text-slate-900 mt-0.5">{stat.value}</h3>
             </div>
           </motion.div>
         ))}
@@ -297,20 +297,20 @@ export function Dashboard() {
         
         {/* Top Row: Main Chart and Status Pie Chart */}
         <div className="lg:col-span-8">
-          <div className="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm h-full transition-colors">
+          <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm h-full transition-colors">
             <div className="flex items-center justify-between mb-8">
               <div>
-                <h2 className="text-lg font-bold text-slate-900 dark:text-white">{t('performance')}</h2>
-                <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">Volume diário de tickets vs resoluções</p>
+                <h2 className="text-lg font-bold text-slate-900">{t('performance')}</h2>
+                <p className="text-xs text-slate-500 font-medium">Volume diário de tickets vs resoluções</p>
               </div>
               <div className="flex items-center gap-4">
                 <div className="flex items-center gap-1.5">
                   <div className="w-2.5 h-2.5 rounded-full bg-blue-600"></div>
-                  <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase">{t('statusComposition')}</span>
+                  <span className="text-[10px] font-bold text-slate-500 uppercase">{t('statusComposition')}</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <div className="w-2.5 h-2.5 rounded-full bg-emerald-500"></div>
-                  <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase">{t('resolutionRate')}</span>
+                  <span className="text-[10px] font-bold text-slate-500 uppercase">{t('resolutionRate')}</span>
                 </div>
               </div>
             </div>
@@ -376,9 +376,9 @@ export function Dashboard() {
 
         <div className="lg:col-span-4">
           {/* Status Pie Chart */}
-          <div className="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm h-full transition-colors">
-            <h2 className="text-sm font-bold text-slate-900 dark:text-white mb-1">Status dos Chamados</h2>
-            <p className="text-[10px] text-slate-500 dark:text-slate-400 font-semibold uppercase tracking-wider mb-6">Composição do Atendimento</p>
+          <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm h-full transition-colors">
+            <h2 className="text-sm font-bold text-slate-900 mb-1">Status dos Chamados</h2>
+            <p className="text-[10px] text-slate-500 font-semibold uppercase tracking-wider mb-6">Composição do Atendimento</p>
             <div className="h-[180px] w-full relative">
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
@@ -402,25 +402,25 @@ export function Dashboard() {
                       border: 'none', 
                       boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)', 
                       fontSize: '12px',
-                      backgroundColor: 'var(--tooltip-bg, #fff)',
-                      color: 'var(--tooltip-color, #000)'
+                      backgroundColor: '#fff',
+                      color: '#000'
                     }}
                   />
                 </PieChart>
               </ResponsiveContainer>
               <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-                <span className="text-3xl font-bold text-slate-900 dark:text-white tracking-tight">{totalTickets}</span>
-                <span className="text-[10px] text-slate-400 dark:text-slate-500 uppercase font-bold tracking-widest">Total</span>
+                <span className="text-3xl font-bold text-slate-900 tracking-tight">{totalTickets}</span>
+                <span className="text-[10px] text-slate-400 uppercase font-bold tracking-widest">Total</span>
               </div>
             </div>
             <div className="mt-6 grid grid-cols-2 gap-3">
               {currentData.status.map((item) => (
-                <div key={item.name} className="p-2.5 rounded-xl bg-white dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800">
+                <div key={item.name} className="p-2.5 rounded-xl bg-white border border-slate-100">
                   <div className="flex items-center gap-1.5 mb-1">
                     <div className="w-2 h-2 rounded-full" style={{ backgroundColor: item.color }}></div>
-                    <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase truncate">{item.name}</span>
+                    <span className="text-[10px] font-bold text-slate-500 uppercase truncate">{item.name}</span>
                   </div>
-                  <span className="text-sm font-bold text-slate-900 dark:text-white">{item.value}</span>
+                  <span className="text-sm font-bold text-slate-900">{item.value}</span>
                 </div>
               ))}
             </div>

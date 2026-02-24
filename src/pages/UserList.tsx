@@ -32,7 +32,7 @@ export function UserList() {
         </button>
       </div>
 
-      <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden transition-colors">
+      <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden transition-colors">
         <div className="p-4 border-b border-slate-100 dark:border-slate-800 flex flex-col md:flex-row gap-4">
           <div className="flex-1 relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500" size={18} />
@@ -43,7 +43,7 @@ export function UserList() {
             />
           </div>
           <div className="flex items-center gap-2">
-            <select className="px-4 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 focus:outline-none transition-colors">
+            <select className="px-4 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-800 focus:outline-none transition-colors">
               <option>Todos os Cargos</option>
               <option>Administrador</option>
               <option>Atendente</option>
@@ -55,7 +55,7 @@ export function UserList() {
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="bg-white dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-800">
+              <tr className="bg-white border-b border-slate-200">
                 <th className="px-6 py-4 text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Usuário</th>
                 <th className="px-6 py-4 text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Empresa</th>
                 <th className="px-6 py-4 text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Cargo</th>
@@ -65,7 +65,7 @@ export function UserList() {
             </thead>
             <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
               {users.map((user) => (
-                <tr key={user.id} className="hover:bg-slate-50/50 dark:hover:bg-slate-800/50 transition-colors group">
+                <tr key={user.id} className="hover:bg-white dark:hover:bg-slate-800/50 transition-colors group">
                   <td className="px-6 py-4">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-full bg-brand-100 dark:bg-brand-900/30 flex items-center justify-center text-brand-700 dark:text-brand-400 font-bold text-sm">

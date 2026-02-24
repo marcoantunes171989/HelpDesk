@@ -66,11 +66,11 @@ export function TicketList() {
           />
         </div>
         <div className="flex items-center gap-2">
-          <button className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+          <button className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-800 transition-colors">
             <Filter size={18} className="text-slate-400 dark:text-slate-500" />
             Filtros
           </button>
-          <select className="px-4 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 focus:outline-none transition-colors">
+          <select className="px-4 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-800 focus:outline-none transition-colors">
             <option>Todos os Status</option>
             <option>Aberto</option>
             <option>Em Atendimento</option>
@@ -80,11 +80,11 @@ export function TicketList() {
       </div>
 
       {/* Table */}
-      <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden transition-colors">
+      <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden transition-colors">
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="bg-white dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-800">
+              <tr className="bg-white border-b border-slate-200">
                 <th className="px-6 py-4 text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Ticket</th>
                 <th className="px-6 py-4 text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Empresa / Solicitante</th>
                 <th className="px-6 py-4 text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Status</th>
@@ -94,7 +94,7 @@ export function TicketList() {
             </thead>
             <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
               {tickets.map((ticket) => (
-                <tr key={ticket.id} className="hover:bg-slate-50/50 dark:hover:bg-slate-800/50 transition-colors group">
+                <tr key={ticket.id} className="hover:bg-white dark:hover:bg-slate-800/50 transition-colors group">
                   <td className="px-6 py-4">
                     <div className="flex flex-col">
                       <span className="text-xs font-bold text-brand-600 dark:text-brand-400 mb-0.5">{ticket.id}</span>

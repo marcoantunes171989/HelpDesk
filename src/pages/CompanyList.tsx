@@ -50,7 +50,7 @@ export function CompanyList() {
         {companies.map((company) => (
           <div key={company.id} className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm p-6 hover:shadow-md dark:hover:border-slate-700 transition-all group">
             <div className="flex items-start justify-between mb-4">
-              <div className="w-12 h-12 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 group-hover:bg-brand-50 dark:group-hover:bg-brand-900/30 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
+              <div className="w-12 h-12 rounded-xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-400 group-hover:bg-white dark:group-hover:bg-brand-900/30 group-hover:border-brand-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors shadow-sm">
                 <Building2 size={24} />
               </div>
               <button className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 dark:text-slate-500 transition-colors">
