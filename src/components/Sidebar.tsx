@@ -16,6 +16,7 @@ import {
   ChevronDown
 } from 'lucide-react';
 import { cn } from '../lib/utils';
+import { motion, AnimatePresence } from 'motion/react';
 
 interface SidebarProps {
   isOpen: boolean;
@@ -130,31 +131,42 @@ export function Sidebar({ isOpen, setIsOpen, isCollapsed, setIsCollapsed }: Side
                 <div className="h-px bg-slate-100 mx-2 my-4" />
               )}
               
-              <div className={cn(
-                "space-y-0.5 transition-all duration-300 overflow-hidden",
-                isCollapsed || expandedGroup === group.id ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
-              )}>
-                {group.items.map((item) => (
-                  <NavLink
-                    key={item.path}
-                    to={item.path}
-                    className={({ isActive }) => cn(
-                      "flex items-center gap-2.5 px-2.5 py-2 rounded-lg transition-all duration-200 group",
-                      isActive 
-                        ? "bg-brand-50 text-brand-700 font-medium" 
-                        : "text-slate-600 hover:bg-slate-50 hover:text-slate-900",
-                      isCollapsed ? "justify-center px-0" : ""
-                    )}
-                    title={isCollapsed ? item.name : ""}
+              <AnimatePresence initial={false}>
+                {(isCollapsed || expandedGroup === group.id) && (
+                  <motion.div
+                    initial={isCollapsed ? false : "collapsed"}
+                    animate="expanded"
+                    exit="collapsed"
+                    variants={{
+                      expanded: { opacity: 1, height: "auto", marginBottom: 4 },
+                      collapsed: { opacity: 0, height: 0, marginBottom: 0 }
+                    }}
+                    transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
+                    className="space-y-0.5 overflow-hidden"
                   >
-                    <item.icon className={cn(
-                      "w-4 h-4 shrink-0 transition-colors",
-                      location.pathname === item.path ? "text-brand-600" : "text-slate-400 group-hover:text-slate-600"
-                    )} />
-                    {!isCollapsed && <span className="text-xs truncate">{item.name}</span>}
-                  </NavLink>
-                ))}
-              </div>
+                    {group.items.map((item) => (
+                      <NavLink
+                        key={item.path}
+                        to={item.path}
+                        className={({ isActive }) => cn(
+                          "flex items-center gap-2.5 px-2.5 py-2 rounded-lg transition-all duration-200 group",
+                          isActive 
+                            ? "bg-brand-50 text-brand-700 font-medium" 
+                            : "text-slate-600 hover:bg-slate-50 hover:text-slate-900",
+                          isCollapsed ? "justify-center px-0" : ""
+                        )}
+                        title={isCollapsed ? item.name : ""}
+                      >
+                        <item.icon className={cn(
+                          "w-4 h-4 shrink-0 transition-colors",
+                          location.pathname === item.path ? "text-brand-600" : "text-slate-400 group-hover:text-slate-600"
+                        )} />
+                        {!isCollapsed && <span className="text-xs truncate">{item.name}</span>}
+                      </NavLink>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           ))}
         </nav>
