@@ -105,7 +105,7 @@ export function Settings() {
                     <input 
                       type="text" 
                       defaultValue="Admin Atendify"
-                      className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all"
+                      className="w-full px-4 py-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all"
                     />
                   </div>
                   <div className="space-y-2">
@@ -113,7 +113,7 @@ export function Settings() {
                     <input 
                       type="email" 
                       defaultValue="admin@atendify.com"
-                      className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all"
+                      className="w-full px-4 py-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all"
                     />
                   </div>
                   <div className="space-y-2">
@@ -121,7 +121,7 @@ export function Settings() {
                     <input 
                       type="text" 
                       defaultValue="Administrador"
-                      className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all"
+                      className="w-full px-4 py-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all"
                     />
                   </div>
                   <div className="space-y-2">
@@ -129,12 +129,12 @@ export function Settings() {
                     <input 
                       type="text" 
                       defaultValue="+55 (11) 99999-9999"
-                      className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all"
+                      className="w-full px-4 py-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all"
                     />
                   </div>
                 </div>
               </div>
-              <div className="px-6 py-4 bg-slate-50 dark:bg-slate-800/50 border-t border-slate-100 dark:border-slate-800 flex justify-end">
+              <div className="px-6 py-4 bg-white dark:bg-slate-800/50 border-t border-slate-100 dark:border-slate-800 flex justify-end">
                 <button className="px-6 py-2.5 bg-brand-600 text-white rounded-xl text-sm font-semibold hover:bg-brand-700 transition-all">
                   {t('saveChanges')}
                 </button>
@@ -192,9 +192,9 @@ export function Settings() {
               </div>
               <div className="p-6 space-y-4">
                 {[
-                  { id: 'pt-BR', name: 'Português - Brazil', flag: '🇧🇷' },
-                  { id: 'en-US', name: 'English Americano', flag: '🇺🇸' },
-                  { id: 'es-ES', name: 'Espanhol', flag: '🇪🇸' },
+                  { id: 'pt-BR', name: 'Português - Brazil', flag: 'https://flagcdn.com/br.svg' },
+                  { id: 'en-US', name: 'English Americano', flag: 'https://flagcdn.com/us.svg' },
+                  { id: 'es-ES', name: 'Espanhol', flag: 'https://flagcdn.com/es.svg' },
                 ].map((lang) => (
                   <button
                     key={lang.id}
@@ -208,7 +208,7 @@ export function Settings() {
                     )}
                   >
                     <div className="flex items-center gap-4">
-                      <span className="text-2xl">{lang.flag}</span>
+                      <img src={lang.flag} alt="" className="w-8 h-6 object-cover rounded shadow-sm" />
                       <span className="font-bold text-slate-900 dark:text-white">{lang.name}</span>
                     </div>
                     {currentLang === lang.id && <Check size={18} className="text-brand-600 dark:text-brand-400" />}
