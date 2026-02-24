@@ -38,48 +38,48 @@ export function CompanyList() {
       </div>
 
       <div className="relative">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500" size={18} />
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
         <input 
           type="text" 
           placeholder="Buscar empresas por nome ou setor..." 
-          className="w-full pl-10 pr-4 py-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl text-sm text-slate-900 dark:text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all"
+          className="w-full pl-10 pr-4 py-3 bg-white border border-slate-200 rounded-2xl text-sm text-slate-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all"
         />
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {companies.map((company) => (
-          <div key={company.id} className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm p-6 hover:shadow-md dark:hover:border-slate-700 transition-all group">
+          <div key={company.id} className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 hover:shadow-md transition-all group">
             <div className="flex items-start justify-between mb-4">
-              <div className="w-12 h-12 rounded-xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-400 group-hover:bg-white dark:group-hover:bg-brand-900/30 group-hover:border-brand-200 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors shadow-sm">
+              <div className="w-12 h-12 rounded-xl bg-white border border-slate-100 flex items-center justify-center text-slate-600 group-hover:bg-white group-hover:border-brand-200 group-hover:text-brand-600 transition-colors shadow-sm">
                 <Building2 size={24} />
               </div>
-              <button className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 dark:text-slate-500 transition-colors">
+              <button className="p-2 rounded-lg hover:bg-slate-100 text-slate-400 transition-colors">
                 <MoreVertical size={18} />
               </button>
             </div>
             
             <div className="mb-6">
-              <h3 className="text-lg font-bold text-slate-900 dark:text-white">{company.name}</h3>
-              <p className="text-sm text-slate-500 dark:text-slate-400">{company.industry}</p>
+              <h3 className="text-lg font-bold text-slate-900">{company.name}</h3>
+              <p className="text-sm text-slate-500">{company.industry}</p>
             </div>
 
             <div className="space-y-3 mb-6">
               <div className="flex items-center justify-between text-sm">
-                <span className="text-slate-500 dark:text-slate-400">Tickets Ativos</span>
-                <span className="font-semibold text-slate-900 dark:text-white">{company.tickets}</span>
+                <span className="text-slate-500">Tickets Ativos</span>
+                <span className="font-semibold text-slate-900">{company.tickets}</span>
               </div>
               <div className="flex items-center justify-between text-sm">
-                <span className="text-slate-500 dark:text-slate-400">Status</span>
-                <span className={`inline-flex items-center gap-1 font-medium ${company.active ? 'text-blue-700 dark:text-blue-400' : 'text-rose-600 dark:text-rose-400'}`}>
+                <span className="text-slate-500">Status</span>
+                <span className={`inline-flex items-center gap-1 font-medium ${company.active ? 'text-blue-700' : 'text-rose-600'}`}>
                   {company.active ? <CheckCircle2 size={14} /> : <XCircle size={14} />}
                   {company.active ? 'Ativa' : 'Inativa'}
                 </span>
               </div>
             </div>
 
-            <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
-              <span className="text-xs text-slate-400 dark:text-slate-500 truncate max-w-[150px]">{company.contact}</span>
-              <button className="text-brand-600 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-300 text-sm font-semibold flex items-center gap-1">
+            <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
+              <span className="text-xs text-slate-400 truncate max-w-[150px]">{company.contact}</span>
+              <button className="text-brand-600 hover:text-brand-700 text-sm font-semibold flex items-center gap-1">
                 Detalhes
                 <ExternalLink size={14} />
               </button>

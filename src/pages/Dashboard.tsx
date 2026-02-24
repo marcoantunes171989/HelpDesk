@@ -199,14 +199,14 @@ export function Dashboard() {
           </p>
         </div>
         <div className="flex items-center gap-2">
-          <div className="flex bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-1 shadow-sm">
+          <div className="flex bg-white border border-slate-200 rounded-xl p-1 shadow-sm">
             {(['hoje', 'semana', 'mes'] as const).map((p) => (
               <button 
                 key={p}
                 onClick={() => setPeriod(p)}
                 className={cn(
                   "px-3 py-1.5 text-xs font-bold rounded-lg transition-all capitalize border",
-                  period === p ? "bg-white dark:bg-slate-800 text-slate-900 dark:text-white border-slate-200 dark:border-slate-700 shadow-sm" : "text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 border-transparent"
+                  period === p ? "bg-white text-slate-900 border-slate-200 shadow-sm" : "text-slate-500 hover:text-slate-700 border-transparent"
                 )}
               >
                 {p === 'mes' ? 'Mês' : p}
@@ -218,8 +218,8 @@ export function Dashboard() {
             <button 
               onClick={() => setIsFilterOpen(!isFilterOpen)}
               className={cn(
-                "flex items-center gap-2 p-2.5 bg-white dark:bg-slate-900 border rounded-xl text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 shadow-sm transition-all",
-                selectedCompany !== 'Todas as Empresas' ? "border-brand-500 dark:border-brand-500 text-brand-600 dark:text-brand-400 bg-brand-50/50 dark:bg-brand-900/20" : "border-slate-200 dark:border-slate-800"
+                "flex items-center gap-2 p-2.5 bg-white border rounded-xl text-slate-500 hover:bg-slate-50 shadow-sm transition-all",
+                selectedCompany !== 'Todas as Empresas' ? "border-brand-500 text-brand-600 bg-white" : "border-slate-200"
               )}
             >
               <Filter size={18} />
@@ -234,9 +234,9 @@ export function Dashboard() {
                   className="fixed inset-0 z-40" 
                   onClick={() => setIsFilterOpen(false)}
                 />
-                <div className="absolute right-0 mt-2 w-56 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl z-50 py-2 animate-in fade-in zoom-in duration-200">
-                  <div className="px-4 py-2 border-b border-slate-100 dark:border-slate-800 mb-1">
-                    <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">Filtrar por Empresa</span>
+                <div className="absolute right-0 mt-2 w-56 bg-white border border-slate-200 rounded-2xl shadow-xl z-50 py-2 animate-in fade-in zoom-in duration-200">
+                  <div className="px-4 py-2 border-b border-slate-100 mb-1">
+                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Filtrar por Empresa</span>
                   </div>
                   {companies.map((company) => (
                     <button
@@ -248,8 +248,8 @@ export function Dashboard() {
                       className={cn(
                         "w-full text-left px-4 py-2 text-sm transition-colors",
                         selectedCompany === company 
-                          ? "bg-brand-50 dark:bg-brand-900/20 text-brand-700 dark:text-brand-400 font-bold" 
-                          : "text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800"
+                          ? "bg-white text-brand-700 font-bold" 
+                          : "text-slate-600 hover:bg-slate-50"
                       )}
                     >
                       {company}
