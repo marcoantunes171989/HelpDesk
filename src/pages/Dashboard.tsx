@@ -270,23 +270,23 @@ export function Dashboard() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.05 }}
-            className="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-slate-300 transition-all group"
+            className="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-slate-300 dark:hover:border-slate-700 transition-all group"
           >
             <div className="flex items-center justify-between mb-2">
-              <div className={cn("p-2 rounded-xl transition-colors", stat.bg)}>
+              <div className={cn("p-2 rounded-xl transition-colors", stat.bg, "dark:bg-slate-800")}>
                 <stat.icon className={cn("w-4 h-4", stat.color)} />
               </div>
               <div className={cn(
                 "flex items-center gap-1 px-2 py-0.5 rounded-lg text-[10px] font-bold",
-                stat.trend === 'up' ? "bg-emerald-50 text-emerald-700" : "bg-rose-50 text-rose-700"
+                stat.trend === 'up' ? "bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400" : "bg-rose-50 dark:bg-rose-900/20 text-rose-700 dark:text-rose-400"
               )}>
                 {stat.change}
                 {stat.trend === 'up' ? <ArrowUpRight size={10} /> : <ArrowDownRight size={10} />}
               </div>
             </div>
             <div>
-              <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">{stat.label}</p>
-              <h3 className="text-xl font-bold text-slate-900 mt-0.5">{stat.value}</h3>
+              <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">{stat.label}</p>
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white mt-0.5">{stat.value}</h3>
             </div>
           </motion.div>
         ))}
@@ -297,20 +297,20 @@ export function Dashboard() {
         
         {/* Top Row: Main Chart and Status Pie Chart */}
         <div className="lg:col-span-8">
-          <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm h-full">
+          <div className="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm h-full transition-colors">
             <div className="flex items-center justify-between mb-8">
               <div>
-                <h2 className="text-lg font-bold text-slate-900">{t('performance')}</h2>
-                <p className="text-xs text-slate-500 font-medium">Volume diário de tickets vs resoluções</p>
+                <h2 className="text-lg font-bold text-slate-900 dark:text-white">{t('performance')}</h2>
+                <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">Volume diário de tickets vs resoluções</p>
               </div>
               <div className="flex items-center gap-4">
                 <div className="flex items-center gap-1.5">
                   <div className="w-2.5 h-2.5 rounded-full bg-blue-600"></div>
-                  <span className="text-[10px] font-bold text-slate-500 uppercase">{t('statusComposition')}</span>
+                  <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase">{t('statusComposition')}</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <div className="w-2.5 h-2.5 rounded-full bg-emerald-500"></div>
-                  <span className="text-[10px] font-bold text-slate-500 uppercase">{t('resolutionRate')}</span>
+                  <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase">{t('resolutionRate')}</span>
                 </div>
               </div>
             </div>
@@ -327,21 +327,28 @@ export function Dashboard() {
                       <stop offset="95%" stopColor="#10b981" stopOpacity={0}/>
                     </linearGradient>
                   </defs>
-                  <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
+                  <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="var(--chart-grid)" />
                   <XAxis 
                     dataKey="name" 
                     axisLine={false} 
                     tickLine={false} 
-                    tick={{ fill: '#94a3b8', fontSize: 11, fontWeight: 500 }}
+                    tick={{ fill: 'var(--chart-tick)', fontSize: 11, fontWeight: 500 }}
                     dy={10}
                   />
                   <YAxis 
                     axisLine={false} 
                     tickLine={false} 
-                    tick={{ fill: '#94a3b8', fontSize: 11, fontWeight: 500 }}
+                    tick={{ fill: 'var(--chart-tick)', fontSize: 11, fontWeight: 500 }}
                   />
                   <Tooltip 
-                    contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)', fontSize: '12px' }}
+                    contentStyle={{ 
+                      borderRadius: '12px', 
+                      border: 'none', 
+                      boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)', 
+                      fontSize: '12px',
+                      backgroundColor: 'var(--tooltip-bg, #fff)',
+                      color: 'var(--tooltip-color, #000)'
+                    }}
                   />
                   <Area 
                     type="monotone" 
@@ -369,9 +376,9 @@ export function Dashboard() {
 
         <div className="lg:col-span-4">
           {/* Status Pie Chart */}
-          <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm h-full">
-            <h2 className="text-sm font-bold text-slate-900 mb-1">Status dos Chamados</h2>
-            <p className="text-[10px] text-slate-500 font-semibold uppercase tracking-wider mb-6">Composição do Atendimento</p>
+          <div className="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm h-full transition-colors">
+            <h2 className="text-sm font-bold text-slate-900 dark:text-white mb-1">Status dos Chamados</h2>
+            <p className="text-[10px] text-slate-500 dark:text-slate-400 font-semibold uppercase tracking-wider mb-6">Composição do Atendimento</p>
             <div className="h-[180px] w-full relative">
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
@@ -389,22 +396,31 @@ export function Dashboard() {
                       <Cell key={`cell-${index}`} fill={entry.color} />
                     ))}
                   </Pie>
-                  <Tooltip />
+                  <Tooltip 
+                    contentStyle={{ 
+                      borderRadius: '12px', 
+                      border: 'none', 
+                      boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)', 
+                      fontSize: '12px',
+                      backgroundColor: 'var(--tooltip-bg, #fff)',
+                      color: 'var(--tooltip-color, #000)'
+                    }}
+                  />
                 </PieChart>
               </ResponsiveContainer>
               <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-                <span className="text-3xl font-bold text-slate-900 tracking-tight">{totalTickets}</span>
-                <span className="text-[10px] text-slate-400 uppercase font-bold tracking-widest">Total</span>
+                <span className="text-3xl font-bold text-slate-900 dark:text-white tracking-tight">{totalTickets}</span>
+                <span className="text-[10px] text-slate-400 dark:text-slate-500 uppercase font-bold tracking-widest">Total</span>
               </div>
             </div>
             <div className="mt-6 grid grid-cols-2 gap-3">
               {currentData.status.map((item) => (
-                <div key={item.name} className="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
+                <div key={item.name} className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800">
                   <div className="flex items-center gap-1.5 mb-1">
                     <div className="w-2 h-2 rounded-full" style={{ backgroundColor: item.color }}></div>
-                    <span className="text-[10px] font-bold text-slate-500 uppercase truncate">{item.name}</span>
+                    <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase truncate">{item.name}</span>
                   </div>
-                  <span className="text-sm font-bold text-slate-900">{item.value}</span>
+                  <span className="text-sm font-bold text-slate-900 dark:text-white">{item.value}</span>
                 </div>
               ))}
             </div>

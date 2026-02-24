@@ -18,12 +18,30 @@
 }
 
 @layer base {
+  :root {
+    --tooltip-bg: #ffffff;
+    --tooltip-color: #0f172a;
+    --chart-tick: #94a3b8;
+    --chart-grid: #f1f5f9;
+  }
+
+  .dark {
+    --tooltip-bg: #0f172a;
+    --tooltip-color: #f8fafc;
+    --chart-tick: #64748b;
+    --chart-grid: #1e293b;
+  }
+
   body {
-    @apply bg-slate-50 text-slate-900 font-sans antialiased;
+    @apply bg-slate-50 text-slate-900 font-sans antialiased transition-colors duration-300;
+  }
+
+  .dark body {
+    @apply bg-slate-950 text-slate-100;
   }
 }
 
 .glass-panel {
-  @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-sm;
+  @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-sm dark:bg-slate-900/80 dark:border-slate-800/50;
 }
 
