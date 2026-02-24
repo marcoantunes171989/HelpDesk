@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Sidebar } from './Sidebar';
-import { Menu, Bell, Search, User } from 'lucide-react';
+import { Menu, Bell, User } from 'lucide-react';
 import { cn } from '../lib/utils';
 
 export function Layout() {
@@ -19,7 +19,7 @@ export function Layout() {
       
       <div className={cn(
         "flex-1 flex flex-col min-w-0 transition-all duration-300",
-        isCollapsed ? "lg:pl-20" : "lg:pl-64"
+        isCollapsed ? "lg:pl-16" : "lg:pl-52"
       )}>
         {/* Top Header */}
         <header className="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-4 lg:px-8 sticky top-0 z-30">
@@ -30,15 +30,6 @@ export function Layout() {
             >
               <Menu size={20} />
             </button>
-            
-            <div className="hidden md:flex items-center bg-slate-50 rounded-xl px-4 py-2 w-full max-w-md border border-slate-200 focus-within:border-brand-500 focus-within:bg-white focus-within:ring-4 focus-within:ring-brand-500/10 transition-all">
-              <Search size={18} className="text-slate-400 mr-2 shrink-0" />
-              <input 
-                type="text" 
-                placeholder="Pesquisar tickets, empresas..." 
-                className="bg-transparent border-none outline-none text-sm w-full text-slate-700 placeholder:text-slate-400"
-              />
-            </div>
           </div>
 
           <div className="flex items-center gap-2 lg:gap-4 ml-4">
