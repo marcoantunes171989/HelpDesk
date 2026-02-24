@@ -31,6 +31,7 @@ import {
   Bar,
   Legend
 } from 'recharts';
+import { t } from '../lib/i18n';
 import { cn } from '../lib/utils';
 
 const ticketVolumeData = [
@@ -60,10 +61,10 @@ const priorityData = [
 const periodData = {
   hoje: {
     stats: [
-      { label: 'Total de Tickets', value: '12', change: '+5%', trend: 'up', icon: Ticket, color: 'text-blue-600', bg: 'bg-blue-50' },
-      { label: 'Tempo Médio Resposta', value: '45m', change: '-10%', trend: 'up', icon: Clock, color: 'text-amber-600', bg: 'bg-amber-50' },
-      { label: 'Taxa de Resolução', value: '98%', change: '+1.2%', trend: 'up', icon: CheckCircle2, color: 'text-emerald-600', bg: 'bg-emerald-50' },
-      { label: 'SLA Cumprido', value: '100%', change: '0%', trend: 'up', icon: Zap, color: 'text-indigo-600', bg: 'bg-indigo-50' },
+      { label: t('totalTickets'), value: '12', change: '+5%', trend: 'up', icon: Ticket, color: 'text-blue-600', bg: 'bg-blue-50' },
+      { label: t('avgResponse'), value: '45m', change: '-10%', trend: 'up', icon: Clock, color: 'text-amber-600', bg: 'bg-amber-50' },
+      { label: t('resolutionRate'), value: '98%', change: '+1.2%', trend: 'up', icon: CheckCircle2, color: 'text-emerald-600', bg: 'bg-emerald-50' },
+      { label: t('slaCompliance'), value: '100%', change: '0%', trend: 'up', icon: Zap, color: 'text-indigo-600', bg: 'bg-indigo-50' },
     ],
     volume: [
       { name: '08:00', tickets: 2, resolved: 1 },
@@ -88,10 +89,10 @@ const periodData = {
   },
   semana: {
     stats: [
-      { label: 'Total de Tickets', value: '87', change: '+12%', trend: 'up', icon: Ticket, color: 'text-blue-600', bg: 'bg-blue-50' },
-      { label: 'Tempo Médio Resposta', value: '1h 24m', change: '-15%', trend: 'up', icon: Clock, color: 'text-amber-600', bg: 'bg-amber-50' },
-      { label: 'Taxa de Resolução', value: '94.2%', change: '+2.4%', trend: 'up', icon: CheckCircle2, color: 'text-emerald-600', bg: 'bg-emerald-50' },
-      { label: 'SLA Cumprido', value: '98.5%', change: '+0.5%', trend: 'up', icon: Zap, color: 'text-indigo-600', bg: 'bg-indigo-50' },
+      { label: t('totalTickets'), value: '87', change: '+12%', trend: 'up', icon: Ticket, color: 'text-blue-600', bg: 'bg-blue-50' },
+      { label: t('avgResponse'), value: '1h 24m', change: '-15%', trend: 'up', icon: Clock, color: 'text-amber-600', bg: 'bg-amber-50' },
+      { label: t('resolutionRate'), value: '94.2%', change: '+2.4%', trend: 'up', icon: CheckCircle2, color: 'text-emerald-600', bg: 'bg-emerald-50' },
+      { label: t('slaCompliance'), value: '98.5%', change: '+0.5%', trend: 'up', icon: Zap, color: 'text-indigo-600', bg: 'bg-indigo-50' },
     ],
     volume: [
       { name: 'Seg', tickets: 12, resolved: 10 },
@@ -107,10 +108,10 @@ const periodData = {
   },
   mes: {
     stats: [
-      { label: 'Total de Tickets', value: '342', change: '+8%', trend: 'up', icon: Ticket, color: 'text-blue-600', bg: 'bg-blue-50' },
-      { label: 'Tempo Médio Resposta', value: '1h 10m', change: '-5%', trend: 'up', icon: Clock, color: 'text-amber-600', bg: 'bg-amber-50' },
-      { label: 'Taxa de Resolução', value: '92.5%', change: '+1.8%', trend: 'up', icon: CheckCircle2, color: 'text-emerald-600', bg: 'bg-emerald-50' },
-      { label: 'SLA Cumprido', value: '97.2%', change: '+0.2%', trend: 'up', icon: Zap, color: 'text-indigo-600', bg: 'bg-indigo-50' },
+      { label: t('totalTickets'), value: '342', change: '+8%', trend: 'up', icon: Ticket, color: 'text-blue-600', bg: 'bg-blue-50' },
+      { label: t('avgResponse'), value: '1h 10m', change: '-5%', trend: 'up', icon: Clock, color: 'text-amber-600', bg: 'bg-amber-50' },
+      { label: t('resolutionRate'), value: '92.5%', change: '+1.8%', trend: 'up', icon: CheckCircle2, color: 'text-emerald-600', bg: 'bg-emerald-50' },
+      { label: t('slaCompliance'), value: '97.2%', change: '+0.2%', trend: 'up', icon: Zap, color: 'text-indigo-600', bg: 'bg-indigo-50' },
     ],
     volume: [
       { name: 'Sem 1', tickets: 80, resolved: 75 },
@@ -299,17 +300,17 @@ export function Dashboard() {
           <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm h-full">
             <div className="flex items-center justify-between mb-8">
               <div>
-                <h2 className="text-lg font-bold text-slate-900">Fluxo de Atendimento</h2>
+                <h2 className="text-lg font-bold text-slate-900">{t('performance')}</h2>
                 <p className="text-xs text-slate-500 font-medium">Volume diário de tickets vs resoluções</p>
               </div>
               <div className="flex items-center gap-4">
                 <div className="flex items-center gap-1.5">
                   <div className="w-2.5 h-2.5 rounded-full bg-blue-600"></div>
-                  <span className="text-[10px] font-bold text-slate-500 uppercase">Abertos</span>
+                  <span className="text-[10px] font-bold text-slate-500 uppercase">{t('statusComposition')}</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <div className="w-2.5 h-2.5 rounded-full bg-emerald-500"></div>
-                  <span className="text-[10px] font-bold text-slate-500 uppercase">Resolvidos</span>
+                  <span className="text-[10px] font-bold text-slate-500 uppercase">{t('resolutionRate')}</span>
                 </div>
               </div>
             </div>

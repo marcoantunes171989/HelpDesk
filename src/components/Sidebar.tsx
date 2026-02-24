@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import { cn } from '../lib/utils';
 import { motion, AnimatePresence } from 'motion/react';
+import { t } from '../lib/i18n';
 
 interface SidebarProps {
   isOpen: boolean;
@@ -25,39 +26,39 @@ interface SidebarProps {
   setIsCollapsed: (isCollapsed: boolean) => void;
 }
 
-const menuGroups = [
-  {
-    id: 'lancamentos',
-    title: 'Lançamentos',
-    items: [
-      { name: 'Dashboard', path: '/', icon: LayoutDashboard },
-      { name: 'Tickets', path: '/tickets', icon: Ticket },
-      { name: 'Novo Ticket', path: '/tickets/new', icon: PlusCircle },
-    ]
-  },
-  {
-    id: 'cadastros',
-    title: 'Cadastros',
-    items: [
-      { name: 'Empresas', path: '/companies', icon: Building2 },
-      { name: 'Cargos', path: '/roles', icon: Briefcase },
-      { name: 'Usuários', path: '/users', icon: Users },
-    ]
-  },
-  {
-    id: 'sistema',
-    title: 'Sistema',
-    items: [
-      { name: 'Relatórios', path: '/reports', icon: BarChart3 },
-      { name: 'Auditoria', path: '/audit', icon: ShieldCheck },
-      { name: 'Configurações', path: '/settings', icon: Settings },
-    ]
-  }
-];
-
 export function Sidebar({ isOpen, setIsOpen, isCollapsed, setIsCollapsed }: SidebarProps) {
   const location = useLocation();
   const [expandedGroup, setExpandedGroup] = useState<string | null>('lancamentos');
+
+  const menuGroups = [
+    {
+      id: 'lancamentos',
+      title: t('lancamentos'),
+      items: [
+        { name: t('dashboard'), path: '/', icon: LayoutDashboard },
+        { name: t('tickets'), path: '/tickets', icon: Ticket },
+        { name: t('newTicket'), path: '/tickets/new', icon: PlusCircle },
+      ]
+    },
+    {
+      id: 'cadastros',
+      title: t('cadastros'),
+      items: [
+        { name: t('companies'), path: '/companies', icon: Building2 },
+        { name: t('roles'), path: '/roles', icon: Briefcase },
+        { name: t('users'), path: '/users', icon: Users },
+      ]
+    },
+    {
+      id: 'sistema',
+      title: t('sistema'),
+      items: [
+        { name: t('reports'), path: '/reports', icon: BarChart3 },
+        { name: t('audit'), path: '/audit', icon: ShieldCheck },
+        { name: t('settings'), path: '/settings', icon: Settings },
+      ]
+    }
+  ];
 
   const toggleGroup = (groupId: string) => {
     setExpandedGroup(prev => prev === groupId ? null : groupId);
